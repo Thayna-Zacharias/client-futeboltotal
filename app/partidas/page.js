@@ -21,8 +21,6 @@ export default function Partidas() {
         <>
             <Header />
 
-            <h1 className={styles.h1}>Partidas de Futebol</h1>
-
             <div className={styles.container}>
                 <ul>
                     {partidas
@@ -35,13 +33,13 @@ export default function Partidas() {
 
                             return (
 
-                                <li key={partida.id}>
-                                {partida.nome_time_casa} vs {partida.nome_time_visitante} <br />
-                                <span>Data do Jogo: </span> <span className={styles.style}> {dataHoraJogo.toLocaleString()} </span> <br />
-                                <span>Local do Jogo: </span> <span className={styles.style}> {partida.estadio_nome} </span> <br />
-                                <span>Árbitro: </span> <span className={styles.style}> {partida.arbitro} </span>
+                                    <li key={partida.id}>
+                                        {partida.nome_time_casa} vs {partida.nome_time_visitante} <br />
+                                        <span>Data do Jogo: </span> <span className={styles.style}> {dataHoraJogo.toLocaleString()} </span> <br />
+                                        <span>Local do Jogo: </span> <span className={styles.style}> {partida.estadio_nome} </span> <br />
+                                        <span>Árbitro: </span> <span className={styles.style}> {partida.arbitro} </span>
 
-                        </li>
+                                    </li>
 
                         )}
                         
