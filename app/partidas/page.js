@@ -1,14 +1,17 @@
 'use client'
-
 import Header from "../Header";
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import styles from './page.module.css';
 import { useRouter } from 'next/navigation';
+import Data from "./data";
+import { apiUrl } from '../functions';
 
 export default function Partidas() {
+
     const router = useRouter();
     const [partidas, setPartidas] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -17,46 +20,46 @@ export default function Partidas() {
             router.push('/login');
         } else {
 
-            axios.get('http://api.futeboltotal.cloud/jogos')
+            axios.get(apiUrl('http://api.futeboltotal.cloud/jogos'))
             .then(response => setPartidas(response.data))
             .catch(error => console.error('Erro ao obter dados do servidor:', error));
         }
       }, []);
 
+    const filteredPartidas = partidas.filter(partida =>
+        partida.nome_time_casa.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        partida.nome_time_visitante.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
     return (
         <>
             <Header />
 
+
+
+            <input
+                className={styles.search}
+                type="text"
+                placeholder="Procure por um time"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+            />
+
             <div className={styles.container}>
                 <ul>
-                    {partidas
-                        .slice()
+                    {filteredPartidas
                         .sort((a, b) => a.data_jogo.localeCompare(b.data_jogo))
-                        .map(partida => {
-
-                            const dataHoraJogo = new Date(partida.data_jogo);
-                            dataHoraJogo.setHours(dataHoraJogo.getHours() + 3);
-
-                            return (
-
-                                    <li key={partida.id}>
-                                        {partida.nome_time_casa} vs {partida.nome_time_visitante} <br />
-                                        <span>Data do Jogo: </span> <span className={styles.style}> {dataHoraJogo.toLocaleString()} </span> <br />
-                                        <span>Local do Jogo: </span> <span className={styles.style}> {partida.estadio_nome} </span> <br />
-                                        <span>Árbitro: </span> <span className={styles.style}> {partida.arbitro} </span>
-
-                                    </li>
-
-                        )}
-                        
-                    )}
-
+                        .map(partida => (
+                            <li key={partida.id} className={styles.match_date}>
+                                Time Casa: {partida.nome_time_casa} - Time Visitante: {partida.nome_time_visitante} <br />
+                                <span>Local do Jogo: </span> {partida.estadio_nome} <br />
+                                <span>Árbitro: </span>  {partida.arbitro}
+                                <Data partidas={[partida]} />
+                            </li>
+                        ))}
                 </ul>
- 
+
             </div>
-
         </>
-
     );
-
 }
