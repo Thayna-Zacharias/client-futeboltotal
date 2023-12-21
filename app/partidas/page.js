@@ -5,13 +5,14 @@ import axios from "axios";
 import Data from "./data";
 import Image from "next/image";
 import styles from './page.module.css'
+import { apiUrl } from '../functions';
 
 export default function Partidas() {
     const [partidas, setPartidas] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
-        axios.get('http://api.futeboltotal.cloud/jogos')
+        axios.get(apiUrl('http://api.futeboltotal.cloud/jogos'))
             .then(response => setPartidas(response.data))
             .catch(error => console.error('Erro ao obter dados do servidor:', error));
     }, []);

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import styles from './login.module.css';
 import { useState } from 'react';
 import Header from '../Header';
+import { apiUrl } from '../functions';
 
 function Login() {
 
@@ -21,7 +22,7 @@ function Login() {
     };
 
     // Fazer a requisição usando a Fetch API
-    const loginData = await fetch('http://api.futeboltotal.cloud/usuario/login', {
+    const loginData = await fetch(apiUrl('http://api.futeboltotal.cloud/usuario/login'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

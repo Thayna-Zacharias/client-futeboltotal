@@ -4,20 +4,21 @@ import Header from "../Header";
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import styles from './page.module.css'
+import { apiUrl } from '../functions';
 
 export default function Times() {
     const [times, setTimes] = useState([]);
     const [estatisticas, setEstatisticas] = useState({});
   
     useEffect(() => {
-      axios.get('http://api.futeboltotal.cloud/times')
+      axios.get(apiUrl('http://api.futeboltotal.cloud/times'))
         .then(response => setTimes(response.data))
         .catch(error => console.error('Erro ao obter dados do servidor:', error));
     }, []);
   
     const fetchEstatisticas = async (timeId) => {
       try {
-        const response = await axios.get(`http://api.futeboltotal.cloud/times_estatisticas/${timeId}`);
+        const response = await axios.get(apiUrl(`http://api.futeboltotal.cloud/times_estatisticas/${timeId}`));
         setEstatisticas({ ...estatisticas, [timeId]: response.data[0] });
       } catch (error) {
         console.error('Erro ao obter estatísticas do time:', error);

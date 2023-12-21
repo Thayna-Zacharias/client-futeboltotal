@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import styles from './page.module.css';
 import { useEffect, useState } from 'react';
+import { apiUrl } from './functions';
 
 export default function Header() {
   const [nome, setNome] = useState('');
@@ -22,7 +23,7 @@ export default function Header() {
 
         }
 
-        const response = await fetch(`http://api.futeboltotal.cloud/usuario/validar-token?token=${token}`, {
+        const response = await fetch(apiUrl(`http://api.futeboltotal.cloud/usuario/validar-token?token=${token}`), {
 
           method: 'GET',
           headers: {
