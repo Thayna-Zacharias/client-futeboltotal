@@ -5,6 +5,7 @@ import axios from "axios";
 import styles from './page.module.css';
 import { useRouter } from 'next/navigation';
 import Data from "./data";
+import Image from "next/image";
 import { apiUrl } from '../functions';
 
 export default function Partidas() {

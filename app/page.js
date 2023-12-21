@@ -4,6 +4,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import styles from './page.module.css';
 import Header from './Header';
+import { apiUrl } from './functions';
 
 const Noticia = ({ title, image, href }) => (
   <a href={href} className={styles.noticia_1} target='_blank'>
@@ -26,7 +27,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://api.futeboltotal.cloud/noticias');
+        const response = await axios.get(apiUrl('http://api.futeboltotal.cloud/noticias'));
 
         const noticiasComImagem = response.data.filter((item) => item.imageUrl && item.imageUrl !== '');
         const noticiasSemImagem = response.data.filter((item) => !item.imageUrl || item.imageUrl === '');

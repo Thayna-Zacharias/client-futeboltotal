@@ -4,6 +4,7 @@ import Image from 'next/image';
 import styles from './cadastro.module.css';
 import { useState } from 'react';
 import Header from '../Header';
+import { apiUrl } from '../functions';
 
 function Cadastro() {
 
@@ -22,7 +23,7 @@ function Cadastro() {
     };
 
     // Fazer a requisição usando a Fetch API
-    const loginData = await fetch('http://api.futeboltotal.cloud/usuario/novo', {
+    const loginData = await fetch(apiUrl('http://api.futeboltotal.cloud/usuario/novo'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

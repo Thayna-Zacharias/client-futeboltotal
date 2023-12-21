@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import styles from './page.module.css';
 import { useRouter } from 'next/navigation';
+import { apiUrl } from '../functions';
 
 export default function Competicoes() {
     const router = useRouter();
@@ -19,11 +20,10 @@ export default function Competicoes() {
             router.push('/login');
         } else {
 
-            axios.get('http://api.futeboltotal.cloud/jogos')
+            axios.get(apiUrl('http://api.futeboltotal.cloud/jogos'))
                 .then(response => setCompeticoes(response.data))
                 .catch(error => console.error('Erro ao obter dados do servidor:', error));
-
-            axios.get('http://api.futeboltotal.cloud/rank_brasileirao')
+            axios.get(apiUrl('http://api.futeboltotal.cloud/rank_brasileirao'))
                 .then(response => setRanking(response.data))
                 .catch(error => console.error('Erro ao obter dados do servidor:', error));
         }
