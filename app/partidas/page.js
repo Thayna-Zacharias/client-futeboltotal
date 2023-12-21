@@ -4,17 +4,23 @@ import Header from "../Header";
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import styles from './page.module.css';
+import { useRouter } from 'next/navigation';
 
 export default function Partidas() {
-
+    const router = useRouter();
     const [partidas, setPartidas] = useState([]);
 
     useEffect(() => {
+        const token = localStorage.getItem('token');
 
-        axios.get('http://api.futeboltotal.cloud/jogos')
-          .then(response => setPartidas(response.data))
-          .catch(error => console.error('Erro ao obter dados do servidor:', error));
+        if (!token) {
+            router.push('/login');
+        } else {
 
+            axios.get('http://api.futeboltotal.cloud/jogos')
+            .then(response => setPartidas(response.data))
+            .catch(error => console.error('Erro ao obter dados do servidor:', error));
+        }
       }, []);
 
     return (

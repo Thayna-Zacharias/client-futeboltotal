@@ -3,17 +3,26 @@
 import Header from "../Header";
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import styles from './page.module.css'
+import styles from './page.module.css';
+import { useRouter } from 'next/navigation';
 
 export default function Times() {
+  const router = useRouter();
+
     const [times, setTimes] = useState([]);
     const [estatisticas, setEstatisticas] = useState({});
   
     useEffect(() => {
-      axios.get('http://api.futeboltotal.cloud/times')
-        .then(response => setTimes(response.data))
-        .catch(error => console.error('Erro ao obter dados do servidor:', error));
-    }, []);
+      const token = localStorage.getItem('token');
+
+      if (!token) {
+        router.push('/login');
+      } else {
+          axios.get('http://api.futeboltotal.cloud/times')
+            .then(response => setTimes(response.data))
+            .catch(error => console.error('Erro ao obter dados do servidor:', error));
+      }
+        }, []);
   
     const fetchEstatisticas = async (timeId) => {
       try {
@@ -30,6 +39,8 @@ export default function Times() {
         fetchEstatisticas(timeId);
       } 
     };
+
+    
   
     return (
       <>
