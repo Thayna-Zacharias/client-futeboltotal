@@ -45,7 +45,7 @@ export default function Times() {
               .map(time => (
                 
                 <li key={time.id}>
-                  <span>Nome do Time: </span> {time.nome} <br />
+                  <span>Nome do Time: </span> <a>{time.nome}</a> <br />
                   <span>Ano de Fundação: </span> {time.ano_fundacao} <br />
                   <span>Cidade, Estado: </span> {time.cidade_estadio}
                   <button onClick={() => openEstatisticas(time.id)} className={styles.button}>+ infos</button>
