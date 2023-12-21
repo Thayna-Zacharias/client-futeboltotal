@@ -106,17 +106,17 @@ export default function Header() {
         </a>
 
         <span className={styles.span_1}>
-          <a href="/partidas" className='tag-a' target='_blank'>Partidas</a>
+          <a href="/partidas" className='tag-a'>Partidas</a>
 
         </span>
 
         <span className={styles.span_1}>
-          <a href="/times" className='tag-a' target='_blank'>Times</a>
+          <a href="/times" className='tag-a'>Times</a>
 
         </span>
 
         <span className={styles.span_1}>
-          <a href="/tabela" className='tag-a' target='_blank'>Tabela</a>
+          <a href="/tabela" className='tag-a'>Tabela</a>
 
         </span>
 
