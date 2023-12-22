@@ -14,16 +14,10 @@ const Noticia = ({ title, image, href }) => (
   </a>
 );
 
-const NoticiaSemImagem = ({ title, image, href }) => (
-  <a href={href} className={styles.noticia_1} target='_blank'>
-    <h2 className={styles.titleFirstPage}>{title}</h2>
-  </a>
-);
 
 const Home = () => {
   const [noticias, setNoticias] = useState([]);
   const [noticiasComImagem, setNoticiasComImagem] = useState([]);
-  const [noticiasSemImagem, setNoticiasSemImagem] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,11 +25,8 @@ const Home = () => {
         const response = await axios.get(apiUrl('http://api.futeboltotal.cloud/noticias'));
 
         const noticiasComImagem = response.data.filter((item) => item.imageUrl && item.imageUrl !== '');
-        const noticiasSemImagem = response.data.filter((item) => !item.imageUrl || item.imageUrl === '');
 
-        setNoticias(noticiasComImagem.concat(noticiasSemImagem));
         setNoticiasComImagem(noticiasComImagem);
-        setNoticiasSemImagem(noticiasSemImagem);
       } catch (error) {
         console.error('Erro ao buscar API', error);
       }
@@ -72,18 +63,6 @@ const Home = () => {
 
             </div>
           )}
-
-          {noticiasSemImagem.length > 0 && (
-            <div className={styles.noticiasComImagem}>
-              {noticiasSemImagem.map((noticia, index) => (
-                <div key={index} className={styles.noticiaContainer}>
-                  <NoticiaSemImagem title={noticia.title} href={noticia.url} />
-                </div>
-              ))}
-            </div>
-          )}
-
-          {noticias.length === 0 && <p>Nenhuma notícia encontrada.</p>}
         </div>
       </div>
 
