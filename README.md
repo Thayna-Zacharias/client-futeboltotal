@@ -1,6 +1,6 @@
 # PROJETO FUTEBOL TOTAL - CODEFICO
 
-<img src="Capturar.PNG" alt="Exemplo imagem">
+<img src="tela-inicial.PNG" alt="Exemplo imagem">
 
 > Projeto consiste no desenvolvimento de um site de notícias e estatísticas sobre futebol, foi escolhido o campeonato brasileiro. O projeto foi desenvolvido durante o curso de programação web da Codefico/UFSJ. As tecnologias usadas no projeto foram: HTML, CSS, JavaScript, Next.js, MySQL.
 
