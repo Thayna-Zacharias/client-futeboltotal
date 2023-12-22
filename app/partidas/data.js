@@ -16,7 +16,7 @@ export default function Data({ partidas }) {
       const formatoHora = hora < 10 ? `0${hora}` : hora;
       const formatoMinutos = minutos < 10 ? `0${minutos}` : minutos;
   
-      const dataFormatada = `${formatoDia} de ${mes} Ás ${formatoHora}:${formatoMinutos}`;
+      const dataFormatada = `Dia ${formatoDia} de ${mes} às ${formatoHora}:${formatoMinutos} horas.`;
   
       return (
         <div key={partida.id}>

@@ -5,6 +5,7 @@ import styles from './cadastro.module.css';
 import { useState } from 'react';
 import Header from '../Header';
 import { apiUrl } from '../functions';
+import Footer from '../footer';
 
 function Cadastro() {
 
@@ -139,6 +140,8 @@ function Cadastro() {
         </div>
 
       </div>
+
+      <Footer />
 
     </>
 

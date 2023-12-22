@@ -6,6 +6,7 @@ import axios from "axios";
 import styles from './page.module.css';
 import { useRouter } from 'next/navigation';
 import { apiUrl } from '../functions';
+import Footer from "../footer";
 
 export default function Competicoes() {
     const router = useRouter();
@@ -87,6 +88,8 @@ export default function Competicoes() {
                 )}
 
             </div>
+
+            <Footer />
 
         </>
 

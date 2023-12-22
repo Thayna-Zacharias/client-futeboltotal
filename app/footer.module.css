@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Roboto:wght@100;300;400;500;700&display=swap');
+
+.html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    background-color: rgb(235, 235, 235);
+
+}
+
+#cabecalho {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1rem;
+    border-bottom: 0.2rem solid black;
+
+}
+
+.tag-a {
+    color: black;
+    text-decoration: none;
+
+}
+
+#a:hover {
+    color: rgb(0, 178, 0);
+
+}
+
+#menu-btn:hover {
+    color: black;
+
+}
+
+.span_1 {
+    font-size: 1.5rem;
+    padding-left: 2rem;
+    justify-content: space-between;
+
+}
+
+.frase {
+    font-size: 2.5rem;
+
+}
+
+#cadastrese,
+#entrar {
+    width: 8rem;
+    height: 5rem;
+
+}
+
+.btn {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 2.5px solid black;
+
+}
+
+.cadastro,
+.entrar,
+.logout {
+    background-color: white;
+
+}
+
+.logout {
+    margin-left: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 2.5px solid black;
+
+}
+
+.titleFirstPage {
+    margin-bottom: 1.25rem;
+    font-size: 18px;
+
+}
+
+.imageFirstPage {
+    width: 90%;
+
+}
+
+.noticias {
+    width:1000px;
+    margin-top:50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.noticiaContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.noticia_1 {
+    text-decoration: none;
+    color: inherit;
+}
+
+.titleFirstPage {
+    margin-top: 0;
+}
+
+.imageFirstPage {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    /* Ajuste a altura conforme necessário */
+}
+
+.noticiaContainer:nth-child(4) {
+    grid-column: span 3;
+}
+
+.noticiaContainer:nth-last-child(-n + 3) {
+    grid-column: span 1;
+}
+
+.noticiasContainerMaxWidth {
+    display: flex;
+    justify-content: center;   
+}
+
+
+/* styles/Footer.module.css */
+.footer {
+    padding: 25px;
+    border: 1px solid black;
+    background-color: rgb(245,245,245);
+
+  }
+  
+.btn_1 {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: white;
+    margin: 10px;
+    padding-left: -100px;
+    width: 150px;
+    cursor: pointer;
+}
+  
+.text {
+    display: flex;
+    font-size: 15px;
+    position: relative;
+    margin-left: 32.5px;
+    top: -25px;
+    justify-content: center;
+}
+
+.icon {
+    position: relative;
+    margin-right: 55px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.name {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    white-space: nowrap;
+    top: -15px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 50px;
+
+}

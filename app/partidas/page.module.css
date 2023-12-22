@@ -1,14 +1,7 @@
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-} */
-
 .search{
     width: 100%;
     margin-top: 30px;
-    margin-left: 40%;
+    margin-left: 42.5%;
     max-width: 220px;
     height: 45px;
     padding: 12px;
@@ -52,6 +45,7 @@
     font-size: 2rem;
     align-items: center;
     justify-content: center;
+    background-color: rgb(232,232,232);
     padding-bottom: 5rem;
 
 }

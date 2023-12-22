@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import Data from "./data";
 import Image from "next/image";
 import { apiUrl } from '../functions';
+import Footer from "../footer";
 
 export default function Partidas() {
 
@@ -36,8 +37,6 @@ export default function Partidas() {
         <>
             <Header />
 
-
-
             <input
                 className={styles.search}
                 type="text"
@@ -61,6 +60,9 @@ export default function Partidas() {
                 </ul>
 
             </div>
+
+            <Footer />                
+
         </>
     );
 }

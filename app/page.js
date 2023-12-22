@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './page.module.css';
 import Header from './Header';
 import { apiUrl } from './functions';
+import Footer from './footer';
 
 const Noticia = ({ title, image, href }) => (
   <a href={href} className={styles.noticia_1} target='_blank'>
@@ -85,6 +86,9 @@ const Home = () => {
           {noticias.length === 0 && <p>Nenhuma notícia encontrada.</p>}
         </div>
       </div>
+
+      <Footer />
+
     </>
   );
 };
