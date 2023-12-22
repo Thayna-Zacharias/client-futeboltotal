@@ -2,20 +2,30 @@
 import Header from "../Header";
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import styles from './page.module.css';
+import { useRouter } from 'next/navigation';
 import Data from "./data";
 import Image from "next/image";
-import styles from './page.module.css'
 import { apiUrl } from '../functions';
 
 export default function Partidas() {
+
+    const router = useRouter();
     const [partidas, setPartidas] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
-        axios.get(apiUrl('http://api.futeboltotal.cloud/jogos'))
+        const token = localStorage.getItem('token');
+
+        if (!token) {
+            router.push('/login');
+        } else {
+
+            axios.get(apiUrl('http://api.futeboltotal.cloud/jogos'))
             .then(response => setPartidas(response.data))
             .catch(error => console.error('Erro ao obter dados do servidor:', error));
-    }, []);
+        }
+      }, []);
 
     const filteredPartidas = partidas.filter(partida =>
         partida.nome_time_casa.toLowerCase().includes(searchQuery.toLowerCase()) ||
