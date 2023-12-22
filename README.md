@@ -17,17 +17,13 @@ O projeto está finalizado mas aberto a críticas, elogios e sugestões. As pró
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-- Você instalou a versão mais recente de um editor de código.
 - Um navegador instalado
 
 ## ☕ Usando Futebol Total:
 
 Para usar o Futebol Total, siga estas etapas:
 
-- Crie um clone do repositório em sua máquina
-- Execute o comando "npm install"
-- Execute o comando "npm run dev"
-- Abra o link: localhost:3000
+- Abra o link: https://futeboltotal.cloud/
 
 ## 📫 Contribuindo para o Futebol Total
 
